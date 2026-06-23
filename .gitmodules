@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = /home/junkreef/repos/backend
+[submodule "frontend"]
+	path = frontend
+	url = /home/junkreef/repos/frontend
