@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: FastAPI (uvicorn)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--reload",
+        "--host", "0.0.0.0",
+        "--port", "8000"
+      ],
+      "cwd": "${workspaceFolder}/backend/src",
+      "python": "${workspaceFolder}/backend/.venv/bin/python",
+      "jinja": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend/src"
+      }
+    },
+    {
+      "name": "Frontend: Debug in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend/src",
+      "sourceMapPathOverrides": {
+        "/@fs/*": "${workspaceFolder}/frontend/*"
+      },
+      "preLaunchTask": "Start Vite Dev Server"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug",
+      "configurations": [
+        "Backend: FastAPI (uvicorn)",
+        "Frontend: Debug in Chrome"
+      ],
+      "stopAll": true
+    }
+  ]
+}

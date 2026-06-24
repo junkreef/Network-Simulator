@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Containerlab generated files
+clab-*/
+*.clab.bak
+
+# Playwright (MCP)
+.playwright-mcp
+
+# Misc
+*.local
+
+# Dependencies & Virtual Envs
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
