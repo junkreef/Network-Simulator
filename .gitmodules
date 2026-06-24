@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = /home/junkreef/repos/backend
+	url = git@github.com:junkreef/Network-Simulator-backend.git
 [submodule "frontend"]
 	path = frontend
-	url = /home/junkreef/repos/frontend
+	url = git@github.com:junkreef/Network-Simulator-frontend.git
