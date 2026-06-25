@@ -17,7 +17,8 @@
       "jinja": true,
       "env": {
         "PYTHONPATH": "${workspaceFolder}/backend/src"
-      }
+      },
+      "postDebugTask": "Cleanup Topology"
     },
     {
       "name": "Frontend: Debug in Chrome",

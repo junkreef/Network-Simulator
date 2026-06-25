@@ -22,6 +22,15 @@
         "reveal": "silent",
         "panel": "dedicated"
       }
+    },
+    {
+      "label": "Cleanup Topology",
+      "type": "shell",
+      "command": "sudo containerlab destroy --name sim-network --cleanup",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
     }
   ]
 }
