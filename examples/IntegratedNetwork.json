@@ -1,0 +1,2315 @@
+{
+  "nodes": [
+    {
+      "id": "router-1",
+      "type": "router",
+      "position": {
+        "x": 295.06061424846064,
+        "y": 249.14359806983362
+      },
+      "data": {
+        "label": "Router-A",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "10.1.0.2",
+            "netmask": "24",
+            "connectedTo": "router-2"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "10.1.1.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290277069"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "10.1.2.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290302253"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": false,
+            "routerId": "",
+            "areaId": "0.0.0.0",
+            "interfaces": []
+          },
+          "rip": {
+            "enabled": true,
+            "networks": [
+              "10.1.0.0/16"
+            ],
+            "interfaces": [],
+            "redistribute": {
+              "connected": true
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": []
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 295.06061424846064,
+        "y": 249.14359806983362
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-2",
+      "type": "router",
+      "position": {
+        "x": 632.7564478089081,
+        "y": 249.6935549420395
+      },
+      "data": {
+        "label": "Router-B",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "10.0.0.1",
+            "netmask": "30",
+            "connectedTo": "router-1782290521003"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "10.1.0.1",
+            "netmask": "24",
+            "connectedTo": "router-1"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "10.2.0.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290372261"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": false,
+            "routerId": "1.1.1.1",
+            "areaId": "0.0.0.0",
+            "interfaces": [
+              "eth2",
+              "eth3"
+            ]
+          },
+          "rip": {
+            "enabled": true,
+            "networks": [
+              "10.1.0.0/16",
+              "10.2.0.0/16"
+            ],
+            "interfaces": [],
+            "redistribute": {
+              "bgp": true,
+              "connected": true
+            }
+          },
+          "bgp": {
+            "enabled": true,
+            "asNumber": 65001,
+            "routerId": "10.0.0.1",
+            "neighbors": [
+              {
+                "ipAddress": "10.0.0.2",
+                "remoteAs": 65002
+              }
+            ],
+            "redistribute": {
+              "connected": true,
+              "rip": true
+            }
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 632.7564478089081,
+        "y": 249.6935549420395
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1",
+      "type": "host",
+      "position": {
+        "x": -332.682000563446,
+        "y": 249.04593719501088
+      },
+      "data": {
+        "label": "Host-A",
+        "status": "up",
+        "ipAddress": "10.1.1.2/24",
+        "gateway": "10.1.1.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290277069"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -332.682000563446,
+        "y": 249.04593719501088
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290277069",
+      "type": "switch",
+      "position": {
+        "x": -3.2268975273350975,
+        "y": 248.55526994156068
+      },
+      "data": {
+        "label": "Switch-A",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290318746"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -3.2268975273350975,
+        "y": 248.55526994156068
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290302253",
+      "type": "switch",
+      "position": {
+        "x": -9.636945781492784,
+        "y": 502.4914084579617
+      },
+      "data": {
+        "label": "Switch-B",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290318892"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290333935"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -9.636945781492784,
+        "y": 502.4914084579617
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290318746",
+      "type": "host",
+      "position": {
+        "x": -336.3413159178512,
+        "y": 350.49303207553083
+      },
+      "data": {
+        "label": "Host-B",
+        "status": "up",
+        "ipAddress": "10.1.1.3/24",
+        "gateway": "10.1.1.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290277069"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -336.3413159178512,
+        "y": 350.49303207553083
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290318892",
+      "type": "host",
+      "position": {
+        "x": -337.61295259101126,
+        "y": 476.8252829971515
+      },
+      "data": {
+        "label": "Host-C",
+        "status": "up",
+        "ipAddress": "10.1.2.2/24",
+        "gateway": "10.2.2.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290302253"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -337.61295259101126,
+        "y": 476.8252829971515
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290333935",
+      "type": "host",
+      "position": {
+        "x": -336.3153834736722,
+        "y": 589.4551030361109
+      },
+      "data": {
+        "label": "Host-D",
+        "status": "up",
+        "ipAddress": "10.1.2.3/24",
+        "gateway": "10.1.2.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290302253"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -336.3153834736722,
+        "y": 589.4551030361109
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290372261",
+      "type": "switch",
+      "position": {
+        "x": -8.728678962968402,
+        "y": 723.4949713292283
+      },
+      "data": {
+        "label": "Switch-C",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-2"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290386401"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290386562"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290415248"
+          },
+          {
+            "id": "eth5",
+            "name": "eth5",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290900379"
+          }
+        ]
+      },
+      "width": 200,
+      "height": 196,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -8.728678962968402,
+        "y": 723.4949713292283
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290386401",
+      "type": "host",
+      "position": {
+        "x": -337.1458529596594,
+        "y": 716.2285211449042
+      },
+      "data": {
+        "label": "Host-E",
+        "status": "up",
+        "ipAddress": "10.2.0.2/24",
+        "gateway": "10.2.0.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290372261"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -337.1458529596594,
+        "y": 716.2285211449042
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290386562",
+      "type": "host",
+      "position": {
+        "x": -338.4174896328194,
+        "y": 816.8687141615354
+      },
+      "data": {
+        "label": "Host-F",
+        "status": "up",
+        "ipAddress": "10.2.0.3/24",
+        "gateway": "10.2.0.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290372261"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -338.4174896328194,
+        "y": 816.8687141615354
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782290415248",
+      "type": "router",
+      "position": {
+        "x": -339.3020159716519,
+        "y": 948.9311827157596
+      },
+      "data": {
+        "label": "Router-C",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "10.2.0.4",
+            "netmask": "24",
+            "connectedTo": "switch-1782290372261"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "10.2.1.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290447857"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "",
+            "netmask": ""
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": false,
+            "routerId": "",
+            "areaId": "0.0.0.0",
+            "interfaces": []
+          },
+          "rip": {
+            "enabled": true,
+            "networks": [
+              "10.2.0.0/16"
+            ],
+            "interfaces": [],
+            "redistribute": {
+              "connected": true
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": []
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -339.3020159716519,
+        "y": 948.9311827157596
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290447857",
+      "type": "switch",
+      "position": {
+        "x": -641.4776143014112,
+        "y": 952.6308914992035
+      },
+      "data": {
+        "label": "Switch-D",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290415248"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290465391"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290465572"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -641.4776143014112,
+        "y": 952.6308914992035
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290465391",
+      "type": "host",
+      "position": {
+        "x": -951.1585570720467,
+        "y": 949.5504255527136
+      },
+      "data": {
+        "label": "Host-G",
+        "status": "up",
+        "ipAddress": "10.2.1.2/24",
+        "gateway": "10.2.1.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290447857"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -951.1585570720467,
+        "y": 949.5504255527136
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290465572",
+      "type": "host",
+      "position": {
+        "x": -951.9789647752256,
+        "y": 1042.6524640686068
+      },
+      "data": {
+        "label": "Host-H",
+        "status": "up",
+        "ipAddress": "10.2.1.3/24",
+        "gateway": "10.2.1.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290447857"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -951.9789647752256,
+        "y": 1042.6524640686068
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782290521003",
+      "type": "router",
+      "position": {
+        "x": 965.3599989804783,
+        "y": 250.28571070562487
+      },
+      "data": {
+        "label": "Router-D",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "10.0.0.2",
+            "netmask": "30",
+            "connectedTo": "router-2"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "192.168.0.1",
+            "netmask": "24",
+            "connectedTo": "router-1782290550839"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "192.168.1.1",
+            "netmask": "24",
+            "connectedTo": "router-1782290561402"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "10.0.0.2",
+            "areaId": "0.0.0.0",
+            "interfaces": [
+              "eth2",
+              "eth3"
+            ],
+            "defaultInformationOriginate": {
+              "enabled": false,
+              "always": false
+            },
+            "redistribute": {
+              "connected": true,
+              "bgp": true
+            },
+            "areas": [
+              {
+                "areaId": "0.0.0.0",
+                "interfaces": [
+                  "eth2",
+                  "eth3"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ]
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "interfaces": []
+          },
+          "bgp": {
+            "enabled": true,
+            "asNumber": 65002,
+            "routerId": "10.0.0.2",
+            "neighbors": [
+              {
+                "ipAddress": "10.0.0.1",
+                "remoteAs": 65001
+              }
+            ],
+            "redistribute": {
+              "connected": true,
+              "ospf": true
+            }
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 965.3599989804783,
+        "y": 250.28571070562487
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782290550839",
+      "type": "router",
+      "position": {
+        "x": 1341.4288771925521,
+        "y": 131.0627182948219
+      },
+      "data": {
+        "label": "Router-E",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "192.168.0.2",
+            "netmask": "24",
+            "connectedTo": "router-1782290521003"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "192.168.2.1",
+            "netmask": "24",
+            "connectedTo": "router-1782290561402"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "192.168.100.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290612474"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "172.16.0.17",
+            "netmask": "30",
+            "connectedTo": "router-1782355460134"
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "192.168.0.2",
+            "areaId": "0.0.0.0",
+            "interfaces": [
+              "eth2",
+              "eth3",
+              "eth1"
+            ],
+            "redistribute": {
+              "connected": true
+            },
+            "areas": [
+              {
+                "areaId": "0.0.0.0",
+                "interfaces": [
+                  "eth2",
+                  "eth1"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              },
+              {
+                "areaId": "0.0.0.1",
+                "interfaces": [
+                  "eth4"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ]
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "interfaces": []
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": []
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1341.4288771925521,
+        "y": 131.0627182948219
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782290561402",
+      "type": "router",
+      "position": {
+        "x": 1338.405365126676,
+        "y": 424.1262610194585
+      },
+      "data": {
+        "label": "Router-F",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "192.168.1.2",
+            "netmask": "24",
+            "connectedTo": "router-1782290521003"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "192.168.2.2",
+            "netmask": "24",
+            "connectedTo": "router-1782290550839"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "192.168.101.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290617092"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "172.16.0.1",
+            "netmask": "30",
+            "connectedTo": "router-1782355460134"
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "192.168.1.2",
+            "areaId": "0.0.0.0",
+            "interfaces": [
+              "eth3",
+              "eth2",
+              "eth1"
+            ],
+            "redistribute": {
+              "connected": true
+            },
+            "areas": [
+              {
+                "areaId": "0.0.0.0",
+                "interfaces": [
+                  "eth1",
+                  "eth2"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              },
+              {
+                "areaId": "0.0.0.1",
+                "interfaces": [
+                  "eth4"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ]
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "interfaces": []
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": []
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1338.405365126676,
+        "y": 424.1262610194585
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290612474",
+      "type": "switch",
+      "position": {
+        "x": 1663.097550942567,
+        "y": 124.129133800576
+      },
+      "data": {
+        "label": "Switch-E",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290550839"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290663179"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290664566"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1663.097550942567,
+        "y": 124.129133800576
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290617092",
+      "type": "switch",
+      "position": {
+        "x": 1663.5387181297397,
+        "y": 424.3251251790875
+      },
+      "data": {
+        "label": "Switch-F",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290561402"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290673733"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290673870"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1663.5387181297397,
+        "y": 424.3251251790875
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290663179",
+      "type": "host",
+      "position": {
+        "x": 2000.393556087945,
+        "y": 117.53271603468667
+      },
+      "data": {
+        "label": "Host-I",
+        "status": "up",
+        "ipAddress": "192.168.100.2/24",
+        "gateway": "192.168.100.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290612474"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2000.393556087945,
+        "y": 117.53271603468667
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290664566",
+      "type": "host",
+      "position": {
+        "x": 2000.8815564260553,
+        "y": 221.34581513261702
+      },
+      "data": {
+        "label": "Host-J",
+        "status": "up",
+        "ipAddress": "192.168.100.3/24",
+        "gateway": "192.168.100.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290612474"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2000.8815564260553,
+        "y": 221.34581513261702
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290673733",
+      "type": "host",
+      "position": {
+        "x": 1995.2757028210924,
+        "y": 422.10279913315054
+      },
+      "data": {
+        "label": "Host-K",
+        "status": "up",
+        "ipAddress": "192.168.101.2/24",
+        "gateway": "192.168.101.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290617092"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1995.2757028210924,
+        "y": 422.10279913315054
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290673870",
+      "type": "host",
+      "position": {
+        "x": 1995.1185371559884,
+        "y": 518.3063277214977
+      },
+      "data": {
+        "label": "Host-L",
+        "status": "up",
+        "ipAddress": "192.168.101.3/24",
+        "gateway": "192.168.101.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290617092"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1995.1185371559884,
+        "y": 518.3063277214977
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782290900379",
+      "type": "router",
+      "position": {
+        "x": -338.85749230108786,
+        "y": 1138.86138336964
+      },
+      "data": {
+        "label": "Router-G",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "10.2.0.5",
+            "netmask": "24",
+            "connectedTo": "switch-1782290372261"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "10.2.2.1",
+            "netmask": "24",
+            "connectedTo": "switch-1782290938233"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "",
+            "netmask": ""
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": false,
+            "routerId": "",
+            "areaId": "0.0.0.0",
+            "interfaces": []
+          },
+          "rip": {
+            "enabled": true,
+            "networks": [
+              "10.2.0.0/16"
+            ],
+            "interfaces": [],
+            "redistribute": {
+              "connected": true
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": []
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -338.85749230108786,
+        "y": 1138.86138336964
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290922520",
+      "type": "host",
+      "position": {
+        "x": -952.8785265073176,
+        "y": 1146.6590298685892
+      },
+      "data": {
+        "label": "Host-M",
+        "status": "up",
+        "ipAddress": "10.2.2.2/24",
+        "gateway": "10.2.2.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290938233"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -952.8785265073176,
+        "y": 1146.6590298685892
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782290922635",
+      "type": "host",
+      "position": {
+        "x": -952.3127301129433,
+        "y": 1246.4517843756212
+      },
+      "data": {
+        "label": "Host-N",
+        "status": "up",
+        "ipAddress": "10.2.2.3/24",
+        "gateway": "10.2.2.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782290938233"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -952.3127301129433,
+        "y": 1246.4517843756212
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782290938233",
+      "type": "switch",
+      "position": {
+        "x": -643.3718679720133,
+        "y": 1149.5961636025477
+      },
+      "data": {
+        "label": "Switch-G",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "router-1782290900379"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290922520"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": [],
+            "connectedTo": "host-1782290922635"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "access",
+            "vlanId": 1,
+            "vlanIds": []
+          }
+        ]
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": -643.3718679720133,
+        "y": 1149.5961636025477
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782355460134",
+      "type": "router",
+      "position": {
+        "x": 1222.1934936871025,
+        "y": 655.0816424312704
+      },
+      "data": {
+        "label": "Router-H",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "172.16.0.2",
+            "netmask": "30",
+            "connectedTo": "router-1782290561402"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "172.16.0.5",
+            "netmask": "30",
+            "connectedTo": "router-1782355675212"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "172.16.0.9",
+            "netmask": "30",
+            "connectedTo": "router-1782355675881"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "172.16.0.18",
+            "netmask": "30",
+            "connectedTo": "router-1782290550839"
+          }
+        ],
+        "vlanInterfaces": [],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "172.16.0.2",
+            "areas": [
+              {
+                "areaId": "0.0.0.1",
+                "interfaces": [
+                  "eth1",
+                  "eth2",
+                  "eth3",
+                  "eth4"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "rip": false,
+              "bgp": false
+            },
+            "defaultInformationOriginate": {
+              "enabled": false,
+              "always": false
+            }
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "bgp": false
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "rip": false
+            }
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1222.1934936871025,
+        "y": 655.0816424312704
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782355675212",
+      "type": "router",
+      "position": {
+        "x": 849.308049403872,
+        "y": 935.02950072206
+      },
+      "data": {
+        "label": "Router-I",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "172.16.0.6",
+            "netmask": "30",
+            "connectedTo": "router-1782355460134"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "172.16.0.13",
+            "netmask": "30",
+            "connectedTo": "router-1782355675881"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "",
+            "netmask": "",
+            "connectedTo": "switch-1782355741113"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [
+          {
+            "name": "eth3.612",
+            "parentInterface": "eth3",
+            "vlanId": 612,
+            "ipAddress": "172.16.12.1/24"
+          },
+          {
+            "name": "eth3.613",
+            "parentInterface": "eth3",
+            "vlanId": 613,
+            "ipAddress": "172.16.13.1/24"
+          }
+        ],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "172.16.0.6",
+            "areas": [
+              {
+                "areaId": "0.0.0.1",
+                "interfaces": [
+                  "eth1",
+                  "eth2",
+                  "eth3.612",
+                  "eth3.613"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ],
+            "redistribute": {
+              "connected": true,
+              "static": false,
+              "rip": false,
+              "bgp": false
+            },
+            "defaultInformationOriginate": {
+              "enabled": false,
+              "always": false
+            }
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "bgp": false
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "rip": false
+            }
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 849.308049403872,
+        "y": 935.02950072206
+      },
+      "dragging": false
+    },
+    {
+      "id": "router-1782355675881",
+      "type": "router",
+      "position": {
+        "x": 1586.9777092196948,
+        "y": 933.1942361843066
+      },
+      "data": {
+        "label": "Router-J",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "ipAddress": "172.16.0.10",
+            "netmask": "30",
+            "connectedTo": "router-1782355460134"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "ipAddress": "172.16.0.14",
+            "netmask": "30",
+            "connectedTo": "router-1782355675212"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "ipAddress": "",
+            "netmask": "",
+            "connectedTo": "switch-1782355741113"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "ipAddress": "",
+            "netmask": ""
+          }
+        ],
+        "vlanInterfaces": [
+          {
+            "name": "eth3.610",
+            "parentInterface": "eth3",
+            "vlanId": 610,
+            "ipAddress": "172.16.10.1/24"
+          },
+          {
+            "name": "eth3.611",
+            "parentInterface": "eth3",
+            "vlanId": 611,
+            "ipAddress": "172.16.1.1/24"
+          }
+        ],
+        "routing": {
+          "ospf": {
+            "enabled": true,
+            "routerId": "172.16.0.10",
+            "areas": [
+              {
+                "areaId": "0.0.0.1",
+                "interfaces": [
+                  "eth3.610",
+                  "eth3.611",
+                  "eth1",
+                  "eth2"
+                ],
+                "ranges": [],
+                "areaType": "normal"
+              }
+            ],
+            "redistribute": {
+              "connected": true,
+              "static": false,
+              "rip": false,
+              "bgp": false
+            },
+            "defaultInformationOriginate": {
+              "enabled": false,
+              "always": false
+            }
+          },
+          "rip": {
+            "enabled": false,
+            "networks": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "bgp": false
+            }
+          },
+          "bgp": {
+            "enabled": false,
+            "asNumber": 65001,
+            "routerId": "",
+            "neighbors": [],
+            "redistribute": {
+              "connected": false,
+              "static": false,
+              "ospf": false,
+              "rip": false
+            }
+          }
+        },
+        "staticRoutes": []
+      },
+      "width": 200,
+      "height": 168,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1586.9777092196948,
+        "y": 933.1942361843066
+      },
+      "dragging": false
+    },
+    {
+      "id": "switch-1782355741113",
+      "type": "switch",
+      "position": {
+        "x": 1932.9909283218524,
+        "y": 1070.1352757614131
+      },
+      "data": {
+        "label": "Switch-H",
+        "status": "up",
+        "interfaces": [
+          {
+            "id": "eth1",
+            "name": "eth1",
+            "vlanMode": "trunk",
+            "vlanId": 1,
+            "vlanIds": [
+              610,
+              611
+            ],
+            "connectedTo": "router-1782355675881"
+          },
+          {
+            "id": "eth2",
+            "name": "eth2",
+            "vlanMode": "access",
+            "vlanId": 610,
+            "vlanIds": [],
+            "connectedTo": "host-1782358496002"
+          },
+          {
+            "id": "eth3",
+            "name": "eth3",
+            "vlanMode": "access",
+            "vlanId": 611,
+            "vlanIds": [],
+            "connectedTo": "host-1782358496160"
+          },
+          {
+            "id": "eth4",
+            "name": "eth4",
+            "vlanMode": "trunk",
+            "vlanId": 1,
+            "vlanIds": [
+              612,
+              613
+            ],
+            "connectedTo": "router-1782355675212"
+          },
+          {
+            "id": "eth5",
+            "name": "eth5",
+            "vlanMode": "access",
+            "vlanId": 612,
+            "vlanIds": [],
+            "connectedTo": "host-1782358747035"
+          },
+          {
+            "id": "eth6",
+            "name": "eth6",
+            "vlanMode": "access",
+            "vlanId": 613,
+            "vlanIds": [],
+            "connectedTo": "host-1782358747210"
+          }
+        ]
+      },
+      "width": 200,
+      "height": 224,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1932.9909283218524,
+        "y": 1070.1352757614131
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782358496002",
+      "type": "host",
+      "position": {
+        "x": 2258.5146386997167,
+        "y": 916.8570444698205
+      },
+      "data": {
+        "label": "Host-O",
+        "status": "up",
+        "ipAddress": "172.16.10.2/24",
+        "gateway": "172.16.10.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782355741113"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2258.5146386997167,
+        "y": 916.8570444698205
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782358496160",
+      "type": "host",
+      "position": {
+        "x": 2261.0796702999987,
+        "y": 1010.7455680900573
+      },
+      "data": {
+        "label": "Host-P",
+        "status": "up",
+        "ipAddress": "172.16.11.2/24",
+        "gateway": "172.16.11.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782355741113"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2261.0796702999987,
+        "y": 1010.7455680900573
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782358747035",
+      "type": "host",
+      "position": {
+        "x": 2262.037824022117,
+        "y": 1111.6089500407259
+      },
+      "data": {
+        "label": "Host-Q",
+        "status": "up",
+        "ipAddress": "172.16.12.2/24",
+        "gateway": "172.16.12.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782355741113"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2262.037824022117,
+        "y": 1111.6089500407259
+      },
+      "dragging": false
+    },
+    {
+      "id": "host-1782358747210",
+      "type": "host",
+      "position": {
+        "x": 2261.880658357013,
+        "y": 1208.457644632287
+      },
+      "data": {
+        "label": "Host-R",
+        "status": "up",
+        "ipAddress": "172.16.13.2/24",
+        "gateway": "172.16.13.1",
+        "vlanInterfaces": [],
+        "connectedTo": "switch-1782355741113"
+      },
+      "width": 200,
+      "height": 84,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2261.880658357013,
+        "y": 1208.457644632287
+      },
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1782290299135-mtiyk9m",
+      "source": "switch-1782290277069",
+      "target": "router-1",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290308389-0k7js6l",
+      "source": "switch-1782290302253",
+      "target": "router-1",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290317533-4wmru60",
+      "source": "host-1",
+      "target": "switch-1782290277069",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290327411-15md0ap",
+      "source": "host-1782290318746",
+      "target": "switch-1782290277069",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290341988-nrumo1v",
+      "source": "host-1782290318892",
+      "target": "switch-1782290302253",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290343797-ryt705s",
+      "source": "host-1782290333935",
+      "target": "switch-1782290302253",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290381343-f8hq6mi",
+      "source": "switch-1782290372261",
+      "target": "router-2",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290383868-x9ujhby",
+      "source": "router-1",
+      "target": "router-2",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290395429-ftnlo4o",
+      "source": "host-1782290386401",
+      "target": "switch-1782290372261",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290398543-ijlbfs6",
+      "source": "host-1782290386562",
+      "target": "switch-1782290372261",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290444127-hptmfen",
+      "source": "switch-1782290372261",
+      "target": "router-1782290415248",
+      "sourceHandle": "eth4-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth4",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290460642-b01dmmi",
+      "source": "router-1782290415248",
+      "target": "switch-1782290447857",
+      "sourceHandle": "eth2-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290475844-76osjpn",
+      "source": "host-1782290465391",
+      "target": "switch-1782290447857",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth2"
+      }
+    },
+    {
+      "id": "edge-1782290514354-bf20bt9",
+      "source": "host-1782290465572",
+      "target": "switch-1782290447857",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth3-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth3"
+      }
+    },
+    {
+      "id": "edge-1782290534623-6hd7f1l",
+      "source": "router-2",
+      "target": "router-1782290521003",
+      "sourceHandle": "eth1-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth1",
+        "targetInterface": "eth1"
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782290596055-clq5bjw",
+      "source": "router-1782290521003",
+      "target": "router-1782290550839",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1",
+        "cost": 10
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782290603805-kgne9d0",
+      "source": "router-1782290561402",
+      "target": "router-1782290550839",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth2-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth2",
+        "cost": 15
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782290626816-lt89mkj",
+      "source": "router-1782290561402",
+      "target": "switch-1782290617092",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290632828-2y8ofgu",
+      "source": "router-1782290550839",
+      "target": "switch-1782290612474",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290685116-ug3fijg",
+      "source": "switch-1782290612474",
+      "target": "host-1782290663179",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290688745-1rnz4ap",
+      "source": "switch-1782290612474",
+      "target": "host-1782290664566",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290700221-6uykto4",
+      "source": "switch-1782290617092",
+      "target": "host-1782290673733",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290702705-kervxka",
+      "source": "switch-1782290617092",
+      "target": "host-1782290673870",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290963632-u0x8z2r",
+      "source": "switch-1782290372261",
+      "target": "router-1782290900379",
+      "sourceHandle": "eth5-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth5",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290982086-6lwga3z",
+      "source": "router-1782290900379",
+      "target": "switch-1782290938233",
+      "sourceHandle": "eth2-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290985245-wbee38e",
+      "source": "switch-1782290938233",
+      "target": "host-1782290922520",
+      "sourceHandle": "eth2-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782290987079-kga5tkq",
+      "source": "switch-1782290938233",
+      "target": "host-1782290922635",
+      "sourceHandle": "eth3-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782293608910-q0apgt4",
+      "source": "router-1782290521003",
+      "target": "router-1782290561402",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1",
+        "cost": 10
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782355478329-i9zmsjm",
+      "source": "router-1782290561402",
+      "target": "router-1782355460134",
+      "sourceHandle": "eth4-right-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth4",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782355686489-y2x7kd2",
+      "source": "router-1782355460134",
+      "target": "router-1782355675212",
+      "sourceHandle": "eth2-left-src",
+      "targetHandle": "eth1-right-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1",
+        "cost": 10
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782355690815-47b099j",
+      "source": "router-1782355460134",
+      "target": "router-1782355675881",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1",
+        "cost": 10
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782355696031-p225o6s",
+      "source": "router-1782355675212",
+      "target": "router-1782355675881",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth2-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth2",
+        "cost": 15
+      },
+      "selected": false
+    },
+    {
+      "id": "edge-1782355892116-vnuniw8",
+      "source": "router-1782290550839",
+      "target": "router-1782355460134",
+      "sourceHandle": "eth4-left-src",
+      "targetHandle": "eth4-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth4",
+        "targetInterface": "eth4"
+      }
+    },
+    {
+      "id": "edge-1782356021477-gtep6os",
+      "source": "router-1782355675881",
+      "target": "switch-1782355741113",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782358511738-es7ls4n",
+      "source": "switch-1782355741113",
+      "target": "host-1782358496002",
+      "sourceHandle": "eth2-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth2",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782358513873-g9h63qd",
+      "source": "switch-1782355741113",
+      "target": "host-1782358496160",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782358703311-c8vae29",
+      "source": "router-1782355675212",
+      "target": "switch-1782355741113",
+      "sourceHandle": "eth3-right-src",
+      "targetHandle": "eth4-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth3",
+        "targetInterface": "eth4"
+      }
+    },
+    {
+      "id": "edge-1782358758813-qrmirux",
+      "source": "switch-1782355741113",
+      "target": "host-1782358747035",
+      "sourceHandle": "eth5-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth5",
+        "targetInterface": "eth1"
+      }
+    },
+    {
+      "id": "edge-1782358761286-towfyid",
+      "source": "switch-1782355741113",
+      "target": "host-1782358747210",
+      "sourceHandle": "eth6-right-src",
+      "targetHandle": "eth1-left-tgt",
+      "type": "networkEdge",
+      "data": {
+        "sourceInterface": "eth6",
+        "targetInterface": "eth1"
+      }
+    }
+  ]
+}
